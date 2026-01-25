@@ -72,8 +72,8 @@ export function Testimonials() {
   const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
 
   return (
-    <section className="bg-(--color-primary) px-6 py-16 lg:px-16 lg:py-24">
-      <div className="mx-auto max-w-7xl">
+    <section className="bg-(--color-primary) px-6 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 lg:py-24">
+      <div className="w-full">
         {/* Header */}
         <div ref={headerRef} className="mb-12 lg:mb-16">
           <motion.h2

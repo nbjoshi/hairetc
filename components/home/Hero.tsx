@@ -13,10 +13,10 @@ export function Hero() {
       <Marquee />
 
       {/* Main Hero Content */}
-      <div className="flex flex-1 flex-col lg:flex-row">
+      <div className="flex flex-1 flex-col lg:flex-row px-6 sm:px-8 md:px-12 lg:px-16">
         {/* Left Content */}
-        <div className="flex flex-1 flex-col justify-center px-6 py-12 text-(--color-secondary) lg:px-16 lg:py-0">
-          <div className="max-w-xl">
+        <div className="flex flex-col justify-start py-6 sm:py-8 md:py-10 lg:flex-1 lg:justify-center lg:py-12 text-(--color-secondary)">
+          <div className="md:max-w-xl lg:max-w-2xl">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export function Hero() {
         </div>
 
         {/* Right Image */}
-        <div className="relative h-64 w-full lg:h-auto lg:flex-1">
+        <div className="relative flex-1 min-h-48 w-full lg:h-auto">
           <Image
             src="/Salon1.png"
             alt="Salon styling"
