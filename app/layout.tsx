@@ -2,7 +2,16 @@ import type { Metadata } from 'next';
 import { Navbar } from '@/components/site/Navbar';
 import { Footer } from '@/components/site/Footer';
 import { ThemeProvider } from '@/components/theme/theme-provider';
+import { Newsreader } from 'next/font/google';
 import '@/styles/globals.css';
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  weight: '300',
+  style: ['normal', 'italic'],
+  variable: '--font-newsreader',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Hair Etc - Salon & Beauty',
@@ -16,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className={`${newsreader.variable} ${newsreader.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

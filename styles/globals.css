@@ -42,12 +42,12 @@
 
 :root {
   --radius: 0.625rem;
-  
+
   /* Primary Colors */
-  --color-primary-bg: #95978a;
-  --color-footer-bg: #222222;
-  --color-footer-text: #e0e0e0;
-  
+  --color-primary: #95978a;
+  --color-secondary: black;
+  --color-tertiary: #e0e0e0;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
@@ -121,6 +121,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-optical-sizing: auto;
   }
 }
 
@@ -135,4 +136,29 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  /* Newsreader font utility */
+  .font-newsreader {
+    font-family: var(--font-newsreader), serif;
+    font-optical-sizing: auto;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Key idea: ensure the track width is exactly 2x a group */
+.marquee-track {
+  width: max-content; /* fit to content */
+  animation: marquee 50s linear infinite;
+}
+
+.marquee-group {
+  width: max-content; /* each group fits its content */
 }
