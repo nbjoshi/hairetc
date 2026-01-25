@@ -23,10 +23,8 @@ const testimonials = [
 
 function TestimonialCard({
   testimonial,
-  index,
 }: {
   testimonial: { name: string; quote: string };
-  index: number;
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
@@ -108,7 +106,6 @@ export function Testimonials() {
             <TestimonialCard
               key={index}
               testimonial={testimonial}
-              index={index}
             />
           ))}
         </div>
