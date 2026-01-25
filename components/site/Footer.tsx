@@ -6,9 +6,9 @@ export function Footer() {
     <footer className="bg-(--color-secondary) text-(--color-tertiary)">
       <Container>
         <div className="py-12">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 justify-items-center md:justify-items-normal gap-8 md:grid-cols-3">
             {/* Brand and Info */}
-            <div>
+            <div className="text-center md:text-left">
               <Link
                 href="/"
                 className="text-xl font-semibold transition-colors"
@@ -23,7 +23,7 @@ export function Footer() {
             </div>
 
             {/* Hours */}
-            <div>
+            <div className="text-center md:text-left">
               <h3 className="mb-4 text-lg font-semibold">Hours</h3>
               <div className="space-y-2 text-sm">
                 <p>Monday - Friday: 10am - 7:30pm</p>
@@ -33,7 +33,7 @@ export function Footer() {
             </div>
 
             {/* Quick Links */}
-            <div>
+            <div className="text-center md:text-left">
               <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
               <ul className="space-y-2 text-sm">
                 <li>
