@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Navbar } from '@/components/site/Navbar';
 import { Footer } from '@/components/site/Footer';
 import { ThemeProvider } from '@/components/theme/theme-provider';
+import { Analytics } from "@vercel/analytics/next"
 import { Newsreader } from 'next/font/google';
 import '@/styles/globals.css';
 
@@ -36,6 +37,7 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
+            <Analytics />
           </div>
         </ThemeProvider>
       </body>
