@@ -1,0 +1,75 @@
+---
+description: Layout system for consistent page structure, spacing, and alignment
+globs: **/*.tsx
+alwaysApply: false
+---
+
+# Layout System Specification
+
+Use the layout components in `components/layout/` to ensure consistent spacing across all pages.
+
+## Core Components
+
+### Container (`components/layout/Container.tsx`)
+The invisible box that provides consistent horizontal padding across all screen sizes.
+
+```tsx
+// Properties:
+// - w-full (full width)
+// - px-6 sm:px-8 lg:px-12 (horizontal padding: 24px/32px/48px)
+// NO centering (mx-auto) or max-width constraints
+```
+
+### Section (`components/layout/Section.tsx`)
+Wrapper for full-width backgrounds with vertical padding.
+
+```tsx
+// Properties:
+// - py-12 md:py-16 lg:py-20 (vertical padding)
+```
+
+## Usage Patterns
+
+### Standard Section (most common)
+
+```tsx
+import { Section } from "@/components/layout/Section";
+import { Container } from "@/components/layout/Container";
+
+<Section className="bg-your-color">
+  <Container>
+    {/* Your content here - aligns with all other sections */}
+  </Container>
+</Section>
+```
+
+### Section with Full-Bleed Element
+
+```tsx
+<section className="relative bg-your-color">
+  <Container>
+    {/* Constrained content */}
+  </Container>
+  
+  {/* Full-bleed element outside Container */}
+  <div className="absolute top-0 right-0 w-1/2 h-full">
+    <Image ... />
+  </div>
+</section>
+```
+
+## Critical Rules
+
+1. **Never nest Container inside Container** - doubles padding and breaks alignment
+2. **Section backgrounds are full-width** - only content goes in Container
+3. **All text content must use Container** - ensures left edge alignment across pages
+4. **Full-bleed images go outside Container** but inside the section
+
+## Visual Alignment
+
+```
+|<------------ viewport ------------>|
+|  px  |<------ content ------>|  px  |
+       ^                       ^
+       Consistent padding on both sides (no centering)
+```

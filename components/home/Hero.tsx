@@ -3,25 +3,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Container } from "@/components/layout/Container";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="relative flex h-screen flex-col bg-(--color-primary)">
+    <section className="relative flex min-h-screen flex-col bg-(--color-primary) lg:h-screen">
       {/* Marquee Strip */}
       <Marquee />
 
       {/* Main Hero Content */}
-      <div className="flex flex-1 flex-col lg:flex-row px-6 sm:px-8 md:px-12 lg:px-16">
-        {/* Left Content */}
-        <div className="flex flex-col justify-start py-6 sm:py-8 md:py-10 lg:flex-1 lg:justify-center lg:py-12 text-(--color-secondary)">
-          <div className="md:max-w-xl lg:max-w-2xl">
+      <div className="flex-1 flex flex-col lg:relative">
+        {/* Container for text - aligns with all other sections */}
+        <Container className="flex-none lg:h-full lg:flex lg:items-center">
+          <div className="lg:w-1/2 py-8 sm:py-10 lg:py-12 text-(--color-secondary)">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+              className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
             >
               Elevate Your Style, Define Your Beauty
             </motion.h1>
@@ -29,7 +30,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-              className="mt-6 text-lg leading-relaxed lg:text-xl"
+              className="mt-4 sm:mt-6 text-base leading-relaxed sm:text-lg lg:text-xl"
             >
               Experience the art of hair transformation at our premier salon.
               Where expertise meets elegance, and every visit leaves you feeling
@@ -39,7 +40,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 1.2 }}
-              className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
+              className="mt-6 sm:mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
             >
               <Button
                 variant="outline"
@@ -51,10 +52,21 @@ export function Hero() {
               </Button>
             </motion.div>
           </div>
+        </Container>
+
+        {/* Mobile/Tablet image - grows to fill remaining space */}
+        <div className="lg:hidden relative flex-1 min-h-64 sm:min-h-80 md:min-h-96">
+          <Image
+            src="/Salon1.png"
+            alt="Salon styling"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
 
-        {/* Right Image */}
-        <div className="relative flex-1 min-h-48 w-full lg:h-auto">
+        {/* Desktop image - positioned absolutely on right */}
+        <div className="hidden lg:block absolute top-0 right-0 w-1/2 h-full">
           <Image
             src="/Salon1.png"
             alt="Salon styling"

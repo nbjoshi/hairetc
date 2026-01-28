@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn';
+import { cn } from "@/utils/cn";
 
 interface SectionProps {
   children: React.ReactNode;
@@ -7,7 +7,7 @@ interface SectionProps {
 
 export function Section({ children, className }: SectionProps) {
   return (
-    <section className={cn('py-12 md:py-16 lg:py-20', className)}>
+    <section className={cn("py-12 md:py-16 lg:py-20", className)}>
       {children}
     </section>
   );
