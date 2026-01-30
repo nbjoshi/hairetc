@@ -9,10 +9,7 @@ interface PageHeaderProps {
 export function PageHeader({ title, description, className }: PageHeaderProps) {
   return (
     <section
-      className={cn(
-        "bg-(--color-primary) px-6 py-16 lg:px-16",
-        className
-      )}
+      className={cn("bg-(--color-primary) px-6 py-16 lg:px-16", className)}
     >
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl">

@@ -14,10 +14,10 @@ export function Hero() {
       <Marquee />
 
       {/* Main Hero Content */}
-      <div className="flex-1 flex flex-col lg:relative">
+      <div className="flex flex-1 flex-col lg:relative">
         {/* Container for text - aligns with all other sections */}
-        <Container className="flex-none lg:h-full lg:flex lg:items-center">
-          <div className="lg:w-1/2 py-8 sm:py-10 lg:py-12 text-(--color-secondary)">
+        <Container className="flex-none lg:flex lg:h-full lg:items-center">
+          <div className="py-8 text-(--color-secondary) sm:py-10 lg:w-1/2 lg:py-12">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-              className="mt-4 sm:mt-6 text-base leading-relaxed sm:text-lg lg:text-xl"
+              className="mt-4 text-base leading-relaxed sm:mt-6 sm:text-lg lg:text-xl"
             >
               Experience the art of hair transformation at our premier salon.
               Where expertise meets elegance, and every visit leaves you feeling
@@ -40,7 +40,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 1.2 }}
-              className="mt-6 sm:mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
+              className="mt-6 flex flex-col gap-4 sm:mt-8 sm:flex-row sm:items-center"
             >
               <Button
                 variant="outline"
@@ -55,7 +55,7 @@ export function Hero() {
         </Container>
 
         {/* Mobile/Tablet image - grows to fill remaining space */}
-        <div className="lg:hidden relative flex-1 min-h-64 sm:min-h-80 md:min-h-96">
+        <div className="relative min-h-64 flex-1 sm:min-h-80 md:min-h-96 lg:hidden">
           <Image
             src="/Salon1.png"
             alt="Salon styling"
@@ -66,7 +66,7 @@ export function Hero() {
         </div>
 
         {/* Desktop image - positioned absolutely on right */}
-        <div className="hidden lg:block absolute top-0 right-0 w-1/2 h-full">
+        <div className="absolute top-0 right-0 hidden h-full w-1/2 lg:block">
           <Image
             src="/Salon1.png"
             alt="Salon styling"

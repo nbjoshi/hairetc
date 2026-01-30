@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-     "prettier": "prettier . --check",
+    "prettier": "prettier . --check",
     "prettier:write": "prettier . --write"
   },
   "dependencies": {

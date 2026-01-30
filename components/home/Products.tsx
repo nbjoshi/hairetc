@@ -103,22 +103,22 @@ export function Products() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="flex flex-col"
             >
-  {/* Product Image */}
-  <div className="relative mb-6 overflow-hidden rounded-2xl bg-[#f4f1ea] ring-1 ring-black/5 shadow-sm">
-    {/* soft spotlight */}
-    <div className="pointer-events-none absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/5 blur-3xl" />
+              {/* Product Image */}
+              <div className="relative mb-6 overflow-hidden rounded-2xl bg-[#f4f1ea] shadow-sm ring-1 ring-black/5">
+                {/* soft spotlight */}
+                <div className="pointer-events-none absolute top-1/3 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/5 blur-3xl" />
 
-    <div className="relative aspect-[3/4] p-8 sm:p-10">
-      <Image
-        src={product.image}
-        alt={product.name}
-        fill
-        className="object-contain transition duration-300 group-hover:scale-[1.03]"
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        priority={index < 3}
-      />
-    </div>
-  </div>
+                <div className="relative aspect-[3/4] p-8 sm:p-10">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain transition duration-300 group-hover:scale-[1.03]"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    priority={index < 3}
+                  />
+                </div>
+              </div>
 
               {/* Product Info - Always Visible */}
               {/* <div className="flex-1">
@@ -130,13 +130,13 @@ export function Products() {
                 </p>
               </div> */}
               <div className="flex-1">
-    <h3 className="font-newsreader mb-3 text-2xl leading-tight font-light text-(--color-secondary) sm:text-3xl">
-      {product.name}
-    </h3>
-    <p className="text-base leading-relaxed text-(--color-secondary) opacity-90 sm:text-lg">
-      {product.description}
-    </p>
-  </div>
+                <h3 className="font-newsreader mb-3 text-2xl leading-tight font-light text-(--color-secondary) sm:text-3xl">
+                  {product.name}
+                </h3>
+                <p className="text-base leading-relaxed text-(--color-secondary) opacity-90 sm:text-lg">
+                  {product.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

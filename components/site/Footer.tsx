@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="bg-(--color-secondary) text-(--color-tertiary)">
       <Container>
         <div className="py-12">
-          <div className="grid grid-cols-1 justify-items-center md:justify-items-normal gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 justify-items-center gap-8 md:grid-cols-3 md:justify-items-normal">
             {/* Brand and Info */}
             <div className="text-center md:text-left">
               <Link

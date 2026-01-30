@@ -105,10 +105,7 @@ export function Testimonials() {
         {/* Testimonials */}
         <div className="flex flex-col gap-8 lg:gap-12">
           {testimonials.map((testimonial, index) => (
-            <TestimonialCard
-              key={index}
-              testimonial={testimonial}
-            />
+            <TestimonialCard key={index} testimonial={testimonial} />
           ))}
         </div>
       </Container>
