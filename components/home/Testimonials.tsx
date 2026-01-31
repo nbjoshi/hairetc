@@ -56,12 +56,12 @@ function TestimonialCard({
         className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between lg:gap-12"
       >
         {/* Person name */}
-        <h3 className="text-lg font-semibold text-[--color-secondary] sm:text-xl lg:w-1/4 lg:shrink-0">
+        <h3 className="text-lg font-semibold text-(--color-secondary) sm:text-xl lg:w-1/4 lg:shrink-0">
           {testimonial.name}
         </h3>
 
         {/* Quote */}
-        <p className="text-base leading-relaxed text-[--color-secondary] sm:text-lg lg:w-2/3">
+        <p className="text-base leading-relaxed text-(--color-secondary) sm:text-lg lg:w-2/3">
           {testimonial.quote}
         </p>
       </motion.div>
@@ -84,7 +84,7 @@ export function Testimonials() {
               isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
             }
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-3xl font-bold tracking-tight text-[--color-secondary] sm:text-4xl lg:text-5xl"
+            className="text-3xl font-bold tracking-tight text-(--color-secondary) sm:text-4xl lg:text-5xl"
           >
             TESTIMONIALS
           </motion.h2>
@@ -94,7 +94,7 @@ export function Testimonials() {
               isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
             }
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-            className="mt-4 max-w-2xl text-base leading-relaxed text-[--color-secondary] sm:text-lg"
+            className="mt-4 max-w-2xl text-base leading-relaxed text-(--color-secondary) sm:text-lg"
           >
             Our clients love their transformed looks and newfound confidence.
             Read their testimonials below to see how Thoa has made a difference

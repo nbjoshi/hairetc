@@ -1,9 +1,10 @@
-import { Products } from "@/components/home/Products";
+import { ProductsHero, ProductGrid } from "@/components/products";
 
 export default function ProductsPage() {
   return (
     <>
-      <Products />
+      <ProductsHero />
+      <ProductGrid />
     </>
   );
 }

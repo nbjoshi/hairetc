@@ -1,11 +1,19 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Container } from "@/components/layout/Container";
-import { Phone, MapPin, Sparkles, Heart, BadgeCheck } from "lucide-react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Container } from "@/components/layout/Container";
+import { Chip } from "@/components/ui/chip";
+import { Phone, MapPin, Sparkles, Heart, BadgeCheck } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const HERO_CHIPS = [
+interface HeroChip {
+  label: string;
+  icon: LucideIcon;
+}
+
+const HERO_CHIPS: HeroChip[] = [
   { label: "Consultation-first", icon: Heart },
   { label: "Salon-grade", icon: BadgeCheck },
   { label: "Transparent pricing", icon: Sparkles },
@@ -13,6 +21,18 @@ const HERO_CHIPS = [
 
 export function ServicesHero() {
   const prefersReducedMotion = useReducedMotion();
+  const router = useRouter();
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    router.push("/");
+    setTimeout(() => {
+      const footer = document.getElementById("contact");
+      if (footer) {
+        footer.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 800);
+  };
 
   const fadeUp = {
     hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
@@ -44,94 +64,13 @@ export function ServicesHero() {
     <section className="relative overflow-hidden bg-(--color-primary)">
       <Container>
         <div className="grid min-h-[420px] grid-cols-1 items-center gap-8 py-12 md:gap-12 md:py-16 lg:min-h-[480px] lg:grid-cols-2 lg:gap-16 lg:py-20">
-          {/* Left Column - Content */}
-          <div className="order-2 lg:order-1">
-            {/* Kicker */}
-            <motion.p
-              initial="hidden"
-              animate="visible"
-              custom={0}
-              variants={fadeUp}
-              className="mb-4 text-xs font-medium tracking-[0.2em] text-(--color-secondary)/60 uppercase"
-            >
-              Services • Pricing
-            </motion.p>
-
-            {/* Headline */}
-            <motion.h1
-              initial="hidden"
-              animate="visible"
-              custom={0.1}
-              variants={fadeUp}
-              className="font-newsreader text-3xl font-bold tracking-tight text-(--color-secondary) sm:text-4xl lg:text-5xl"
-            >
-              Services
-            </motion.h1>
-
-            {/* Subhead */}
-            <motion.p
-              initial="hidden"
-              animate="visible"
-              custom={0.2}
-              variants={fadeUp}
-              className="mt-5 max-w-lg text-base leading-relaxed text-(--color-secondary)/80 sm:text-lg"
-            >
-              Call to schedule. Walk-ins welcome for select services.
-            </motion.p>
-
-            {/* Chips */}
-            <div className="mt-6 flex flex-wrap items-center gap-2.5">
-              {HERO_CHIPS.map((chip, i) => {
-                const Icon = chip.icon;
-                return (
-                  <motion.span
-                    key={chip.label}
-                    initial="hidden"
-                    animate="visible"
-                    custom={i}
-                    variants={chipVariants}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-(--color-secondary)/15 bg-(--color-secondary)/5 px-3 py-1.5 text-xs font-medium text-(--color-secondary)/80"
-                  >
-                    <Icon className="h-3.5 w-3.5" aria-hidden="true" />
-                    {chip.label}
-                  </motion.span>
-                );
-              })}
-            </div>
-
-            {/* CTAs */}
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              custom={0.6}
-              variants={fadeUp}
-              className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
-            >
-              <Link
-                href="tel:+19194694247"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-(--color-secondary) bg-(--color-secondary) px-5 py-2.5 text-sm font-medium text-(--color-tertiary) shadow-sm transition-colors hover:bg-(--color-secondary)/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-(--color-secondary)/50 focus-visible:ring-offset-2"
-              >
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                Call to book
-              </Link>
-
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-(--color-secondary)/70 transition-colors hover:text-(--color-secondary)"
-              >
-                <MapPin className="h-4 w-4" aria-hidden="true" />
-                Hours & location
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Right Column - Art Direction Panel */}
+          {/* Left Column - Art Direction Panel */}
           <motion.div
             initial="hidden"
             animate="visible"
             custom={0.3}
             variants={fadeUp}
-            className="order-1 lg:order-2"
+            className="order-1 lg:order-1"
           >
             <div className="relative overflow-hidden rounded-3xl border border-(--color-secondary)/8 bg-gradient-to-br from-(--color-secondary)/3 via-transparent to-(--color-secondary)/5 p-8 shadow-(--color-secondary)/5 shadow-lg sm:p-10 lg:p-12">
               {/* Noise/grain overlay */}
@@ -200,6 +139,92 @@ export function ServicesHero() {
               </div>
             </div>
           </motion.div>
+          {/* Right Column - Content */}
+          <div className="order-2 lg:order-2">
+            {/* Kicker */}
+            <motion.p
+              initial="hidden"
+              animate="visible"
+              custom={0}
+              variants={fadeUp}
+              className="mb-4 text-xs font-medium tracking-[0.2em] text-(--color-secondary)/60 uppercase"
+            >
+              Services • Pricing
+            </motion.p>
+
+            {/* Headline */}
+            <motion.h1
+              initial="hidden"
+              animate="visible"
+              custom={0.1}
+              variants={fadeUp}
+              className="font-newsreader text-3xl font-bold tracking-tight text-(--color-secondary) sm:text-4xl lg:text-5xl"
+            >
+              Services
+            </motion.h1>
+
+            {/* Subhead */}
+            <motion.p
+              initial="hidden"
+              animate="visible"
+              custom={0.2}
+              variants={fadeUp}
+              className="mt-5 max-w-lg text-base leading-relaxed text-(--color-secondary)/80 sm:text-lg"
+            >
+              Call to schedule. Walk-ins welcome for select services.
+            </motion.p>
+
+            {/* Chips */}
+            <div className="mt-6 flex flex-wrap items-center gap-2.5">
+              {HERO_CHIPS.map((chip, i) => (
+                <motion.div
+                  key={chip.label}
+                  initial="hidden"
+                  animate="visible"
+                  custom={i}
+                  variants={chipVariants}
+                  whileHover={
+                    prefersReducedMotion
+                      ? {}
+                      : { y: -2, transition: { duration: 0.2 } }
+                  }
+                >
+                  <Chip
+                    icon={chip.icon}
+                    className="transition-colors hover:border-(--color-secondary)/25 hover:bg-(--color-secondary)/10"
+                  >
+                    {chip.label}
+                  </Chip>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTAs */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              custom={0.6}
+              variants={fadeUp}
+              className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+            >
+              <a
+                href="tel:+19194694247"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-(--color-secondary) bg-(--color-secondary) px-5 py-2.5 text-sm font-medium text-(--color-tertiary) shadow-sm transition-colors hover:bg-(--color-secondary)/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-(--color-secondary)/50 focus-visible:ring-offset-2"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                Call to book
+              </a>
+
+              <Link
+                href="/#contact"
+                onClick={handleContactClick}
+                className="group inline-flex cursor-pointer items-center gap-2 px-4 py-2 text-sm font-medium text-(--color-secondary)/70 transition-colors hover:text-(--color-secondary)"
+              >
+                <MapPin className="h-4 w-4" aria-hidden="true" />
+                Hours & location
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </Container>
 

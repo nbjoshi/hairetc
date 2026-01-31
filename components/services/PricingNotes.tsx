@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/layout/Container";
 import { ChevronDown, Info } from "lucide-react";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
 const PRICING_NOTES = [
   "Prices may vary by length, density, and consultation.",

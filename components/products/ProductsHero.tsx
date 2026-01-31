@@ -2,10 +2,17 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/layout/Container";
+import { Chip } from "@/components/ui/chip";
 import { CleanStandardsDrawer } from "./CleanStandardsDrawer";
 import { Leaf, Heart, Palette, BadgeCheck, Info, Sparkles } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const CLEAN_CHIPS = [
+interface CleanChip {
+  label: string;
+  icon: LucideIcon;
+}
+
+const CLEAN_CHIPS: CleanChip[] = [
   { label: "Plant-forward", icon: Leaf },
   { label: "Scalp friendly", icon: Heart },
   { label: "Color-care options", icon: Palette },
@@ -93,27 +100,27 @@ export function ProductsHero() {
 
             {/* Clean Standards Chips */}
             <div className="mt-6 flex flex-wrap items-center gap-2.5">
-              {CLEAN_CHIPS.map((chip, i) => {
-                const Icon = chip.icon;
-                return (
-                  <motion.span
-                    key={chip.label}
-                    initial="hidden"
-                    animate="visible"
-                    custom={i}
-                    variants={chipVariants}
-                    whileHover={
-                      prefersReducedMotion
-                        ? {}
-                        : { y: -2, transition: { duration: 0.2 } }
-                    }
-                    className="inline-flex items-center gap-1.5 rounded-full border border-(--color-secondary)/15 bg-(--color-secondary)/5 px-3 py-1.5 text-xs font-medium text-(--color-secondary)/80 transition-colors hover:border-(--color-secondary)/25 hover:bg-(--color-secondary)/10"
+              {CLEAN_CHIPS.map((chip, i) => (
+                <motion.div
+                  key={chip.label}
+                  initial="hidden"
+                  animate="visible"
+                  custom={i}
+                  variants={chipVariants}
+                  whileHover={
+                    prefersReducedMotion
+                      ? {}
+                      : { y: -2, transition: { duration: 0.2 } }
+                  }
+                >
+                  <Chip
+                    icon={chip.icon}
+                    className="transition-colors hover:border-(--color-secondary)/25 hover:bg-(--color-secondary)/10"
                   >
-                    <Icon className="h-3.5 w-3.5" aria-hidden="true" />
                     {chip.label}
-                  </motion.span>
-                );
-              })}
+                  </Chip>
+                </motion.div>
+              ))}
 
               {/* What we mean by clean button */}
               <motion.div
@@ -142,7 +149,6 @@ export function ProductsHero() {
               variants={fadeUp}
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
-
               <a
                 href="#product-grid"
                 onClick={handleScrollToGrid}

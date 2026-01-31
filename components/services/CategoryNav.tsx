@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Container } from "@/components/layout/Container";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
 export interface Category {
   id: string;
