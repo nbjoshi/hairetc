@@ -9,7 +9,7 @@ import {
   DrawerTrigger,
   DrawerClose,
 } from "@/components/ui/drawer";
-import { Leaf, Sparkles, Heart } from "lucide-react";
+import { Leaf, Sparkles, Heart, X } from "lucide-react";
 
 interface CleanStandardsDrawerProps {
   children: React.ReactNode;

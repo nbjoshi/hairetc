@@ -1,9 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { Phone, MapPin, Sparkles, Heart, BadgeCheck } from "lucide-react";
+import Link from "next/link";
 
 const HERO_CHIPS = [
   { label: "Consultation-first", icon: Heart },
@@ -13,18 +13,6 @@ const HERO_CHIPS = [
 
 export function ServicesHero() {
   const prefersReducedMotion = useReducedMotion();
-  const router = useRouter();
-
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    router.push("/");
-    setTimeout(() => {
-      const footer = document.getElementById("contact");
-      if (footer) {
-        footer.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 800);
-  };
 
   const fadeUp = {
     hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
@@ -119,22 +107,21 @@ export function ServicesHero() {
               variants={fadeUp}
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
-              <a
+              <Link
                 href="tel:+19194694247"
                 className="inline-flex items-center justify-center gap-2 rounded-md border border-(--color-secondary) bg-(--color-secondary) px-5 py-2.5 text-sm font-medium text-(--color-tertiary) shadow-sm transition-colors hover:bg-(--color-secondary)/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-(--color-secondary)/50 focus-visible:ring-offset-2"
               >
                 <Phone className="h-4 w-4" aria-hidden="true" />
                 Call to book
-              </a>
+              </Link>
 
-              <a
-                href="/#contact"
-                onClick={handleContactClick}
-                className="group inline-flex cursor-pointer items-center gap-2 px-4 py-2 text-sm font-medium text-(--color-secondary)/70 transition-colors hover:text-(--color-secondary)"
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-(--color-secondary)/70 transition-colors hover:text-(--color-secondary)"
               >
                 <MapPin className="h-4 w-4" aria-hidden="true" />
                 Hours & location
-              </a>
+              </Link>
             </motion.div>
           </div>
 
