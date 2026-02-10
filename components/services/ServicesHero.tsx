@@ -113,7 +113,7 @@ export function ServicesHero() {
                 <div className="mt-8 grid grid-cols-3 gap-4">
                   <div className="text-center">
                     <p className="font-newsreader text-2xl font-light text-(--color-secondary)">
-                      25+
+                      19+
                     </p>
                     <p className="mt-1 text-xs text-(--color-secondary)/50">
                       Years
@@ -121,7 +121,7 @@ export function ServicesHero() {
                   </div>
                   <div className="text-center">
                     <p className="font-newsreader text-2xl font-light text-(--color-secondary)">
-                      5
+                      3
                     </p>
                     <p className="mt-1 text-xs text-(--color-secondary)/50">
                       Stylists

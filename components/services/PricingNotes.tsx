@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 const PRICING_NOTES = [
   "Prices may vary by length, density, and consultation.",
   "Color and highlight services may require additional time and product.",
+  "Free color patch testing available for guests with sensitive skin.",
   "Call for a personalized recommendation.",
 ];
 

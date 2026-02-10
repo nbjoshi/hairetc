@@ -59,7 +59,8 @@ const SERVICE_DATA: ServiceCategoryData[] = [
   {
     id: "color",
     title: "Color",
-    description: "Rich, lasting color tailored to you",
+    description:
+      "Rich, lasting color tailored to you. Free patch testing for sensitive skin.",
     services: [
       { name: "Color + Cut & Style", price: "$85" },
       { name: "Prescriptive Design (Two Color)", price: "$100" },
