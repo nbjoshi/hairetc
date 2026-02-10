@@ -25,7 +25,7 @@ export function ServicesHero() {
 
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    router.push("/");
+    router.push("/contact");
     setTimeout(() => {
       const footer = document.getElementById("contact");
       if (footer) {
