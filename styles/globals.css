@@ -170,3 +170,13 @@
 .marquee-group {
   width: max-content; /* each group fits its content */
 }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #95978a; /* or whatever your site bg is */
+}
